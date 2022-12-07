@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Django external apps
+    'corsheaders',
     'rest_framework',
+    'django_rest_passwordreset',
+
 
     # Django customs apps
     'authentication',
@@ -50,6 +53,7 @@ AUTH_USER_MODEL = "authentication.CustomUser"
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
