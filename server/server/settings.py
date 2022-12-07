@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # Django customs apps
     'authentication',
+    'films',
 ]
 
 # Custom user model
