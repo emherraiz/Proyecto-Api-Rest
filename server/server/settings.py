@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -140,3 +141,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuración de CORS
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+
+
+# Media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # path al directorio local
+MEDIA_URL = 'http://localhost:8000/media/' # url para el desarrollo
+
