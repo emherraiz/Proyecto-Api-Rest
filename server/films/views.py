@@ -6,6 +6,11 @@ class FilmViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Film.objects.all()
     serializer_class = FilmSerializer
 
+    # Sistema de filtros
+    filter_backends = [filters.SearchFilter]
+
+    search_fields = ['title', 'year', 'genres__name'] 
+
 class GenreViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = FilmGenre.objects.all()
     serializer_class = FilmGenreSerializer
