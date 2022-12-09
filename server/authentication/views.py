@@ -38,5 +38,9 @@ class ProfileView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
     http_method_names = ['get', 'patch']
 
+    def get_object(self):
+        if self.request.user.is_authenticated:
+            return self.request.user
+
 
 
