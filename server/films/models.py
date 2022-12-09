@@ -2,6 +2,10 @@ import uuid
 from django.db import models
 from django.utils.text import slugify
 class Film(models.Model):
+
+    def path_to_film(self, instance, filename):
+        return f'films/{instance.id}/{filename}'
+
     # uuid en lugar de id clásica autoincremental
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
@@ -17,9 +21,9 @@ class Film(models.Model):
 
     genres = models.ManyToManyField('FilmGenre', related_name="film_genres",verbose_name="Géneros")
 
-    image_thumbnail = models.ImageField(upload_to='films/', null=True, blank=True, verbose_name="Miniatura")
+    image_thumbnail = models.ImageField(upload_to=path_to_film, null=True, blank=True, verbose_name="Miniatura")
 
-    image_wallpaper = models.ImageField(upload_to='films/', null=True, blank=True, verbose_name="Wallpaper")
+    image_wallpaper = models.ImageField(upload_to=path_to_film, null=True, blank=True, verbose_name="Wallpaper")
 
     class Meta:
         verbose_name = "Película"
