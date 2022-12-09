@@ -41,12 +41,10 @@ class FilmViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = FilmSerializer
 
     # Sistema de filtros
-    filter_backends = [DjangoFilterBackend,  # edited
-                       filters.SearchFilter, filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend,  filters.SearchFilter, filters.OrderingFilter]
 
     search_fields = ['title', 'year', 'genres__name']
-    ordering_fields = ['title', 'year',
-                       'genres__name', 'favorites', 'average_note']
+    ordering_fields = ['title', 'year', 'genres__name', 'favorites', 'average_note']
     filterset_fields = {
         'year': ['lte', 'gte'],  # Año menor o igual, año mayor o igual
         'genres': ['exact']      # Género exacto
