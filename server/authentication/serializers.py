@@ -6,6 +6,7 @@ class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True)
     username = serializers.CharField(required=True)
     password = serializers.CharField(min_length=8)
+    avatar = serializers.ImageField(required=False)
 
     class Meta:
         model = get_user_model()
