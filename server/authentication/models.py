@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from django.conf import settings  # new
+from django.core.validators import MaxValueValidator  # new
 
 def path_to_avatar(instance, filename):
     return f'avatars/{instance.id}/{filename}'
