@@ -34,5 +34,9 @@ class LogoutView(APIView):
 class SignupView(generics.CreateAPIView):
     serializer_class = UserSerializer
 
+class ProfileView(generics.RetrieveUpdateAPIView):
+    serializer_class = UserSerializer
+    http_method_names = ['get', 'patch']
+
 
 
