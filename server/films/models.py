@@ -3,6 +3,8 @@ from django.db import models
 from django.utils.text import slugify
 from django.conf import settings
 from django.core.validators import MaxValueValidator
+from django.db.models import Sum
+from django.db.models.signals import post_save
 class Film(models.Model):
 
     def path_to_film(self, instance, filename):
