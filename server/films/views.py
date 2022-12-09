@@ -4,8 +4,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Film, FilmGenre, FilmUser
-from .serializers import (FilmSerializer, FilmGenreSerializer,
-                          FilmUserSerializer)
+from .serializers import (FilmSerializer, FilmGenreSerializer, FilmUserSerializer)
 
 
 class ExtendedPagination(PageNumberPagination):
